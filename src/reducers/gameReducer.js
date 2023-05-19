@@ -11,7 +11,7 @@ const gameReducer = (state = initState, action) => {
         ...state,
         popular: action.payload.popular,
         upcoming: action.payload.upcoming,
-        new: action.payload.new,
+        newGames: action.payload.newGames,
       };
     default:
       return { ...state };
