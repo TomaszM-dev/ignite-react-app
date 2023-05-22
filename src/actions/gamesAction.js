@@ -1,5 +1,6 @@
 import axios from "axios";
 import { popularGamesURL, upcomingGamesURL, newGamesURL } from "../api";
+import { useState } from "react";
 
 /// action creator
 

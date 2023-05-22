@@ -1,6 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+
 import {
   legacy_createStore as createStore,
   compose,
@@ -20,8 +23,10 @@ const store = createStore(
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <BrowserRouter>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </BrowserRouter>
   </React.StrictMode>
 );

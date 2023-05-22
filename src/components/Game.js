@@ -1,13 +1,23 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { useDispatch } from "react-redux";
+import loadDetail from "../actions/detailAction";
+import { Link } from "react-router-dom";
 
-const Game = function ({ name, released, image }) {
-  console.log(name);
+const Game = function ({ name, released, image, id }) {
+  const stringPathId = id.toString();
+  const dispatch = useDispatch();
+  const loadDetailHandler = () => {
+    document.body.style.overflow = "hidden";
+    dispatch(loadDetail(id));
+  };
   return (
-    <StyledGame>
-      <h3>{name}</h3>
-      <p>{released}</p>
-      <img src={image} alt="" />
+    <StyledGame onClick={loadDetailHandler}>
+      <Link to={`/game/:${stringPathId}`}>
+        <h3>{name}</h3>
+        <p>{released}</p>
+        <img src={image} alt="" />
+      </Link>
     </StyledGame>
   );
 };
